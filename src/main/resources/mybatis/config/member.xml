@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sql Mapper -->
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="member">
+ 	<resultMap type="mvo" id="memberRM">
+ 	 	<result property="memberId" column="member_id"/>
+ 	 	<result property="memberPassword" column="member_password"/>
+ 	 	<result property="memberName" column="member_name"/>
+ 	 	<result property="memberEmail" column="member_email"/>
+ 	
+ 	 </resultMap>
+ 	 
+ 	  <resultMap type="mvo" id="memberListRM">
+ 	  <result property="memberId" column="member_id"/>
+      <result property="memberName" column="member_name" />         
+      <result property="memberPassword" column="member_password" /> 
+      <result property="memberEmail" column="member_email" /> 
+	</resultMap>
+ 	 
+ 	<insert id="registerMember" parameterType="mvo">
+		insert into member(member_id, member_password, member_name, member_email)
+		values(#{memberId}, #{memberPassword}, #{memberName}, #{memberEmail})
+	</insert>
+	<select id="loginMember" parameterType="mvo" resultMap="memberRM">
+		select member_id, member_password, member_name, member_email
+		from member 
+		where member_id=#{memberId} and member_password=#{memberPassword}
+	</select>
+	<select id="memberIdCheck" resultType="int">
+		select count(*) from member where member_id=#{value}
+	</select>
+	<select id="findMemberInfoByMemberId" resultMap="memberRM">
+		select member_id, member_password, member_name, member_email from member where member_id=#{value}
+	</select>
+	<update id="updateMemberInfo" parameterType="mvo">
+		update member set member_email=#{memberEmail} where member_id=#{memberId}
+	</update>
+	<delete id="deleteMember">
+		delete from member where member_id=#{value}
+	</delete>
+
+	<select id="memberPasswordCheck" parameterType="mvo" resultType="int">
+		select count(*) from member where member_id=#{memberId} and member_password=#{memberPassword}
+	</select>
+	<update id="updateMemberPassword" parameterType="mvo">
+		update member set member_password=#{memberPassword} where member_id=#{memberId}
+	</update>
+
+	<select id="member_findMemberId" resultMap="memberListRM">
+ 		select member_id,member_password,member_name,member_email from member where member_name=#{memberName} and member_email=#{memberEmail}
+ 	</select>
+ 	<select id="member_findMemberPassword" resultMap="memberListRM">
+ 		select member_id,member_password,member_name,member_email from member where member_id=#{memberId} and member_name=#{memberName} and member_email=#{memberEmail} 
+ 	</select>
+ </mapper> 

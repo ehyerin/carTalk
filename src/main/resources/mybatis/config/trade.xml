@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="trade">
+	<resultMap type="tradeVO" id="tradeRM">
+		<result property="tradeNo" column="trade_no" />			
+		<result property="tradeTitle" column="trade_title" /> 
+		<result property="memberId" column="trade_member_id" /> 
+		<result property="tradeContent" column="trade_content" /> 
+		<result property="tradeTimePosted" column="trade_time_posted" /> 
+		<result property="tradeHit" column="trade_hit"/>
+		<result property="tradeCommentCount" column="trade_comment_count"/>
+		<result property="tradeFileVO.filePath" column="file_path"/>
+	</resultMap>
+	<resultMap type="tradeCommentVO" id="tradeCommentRM">
+		<result property="tradeCommentNo" column="trade_comment_no"/>
+		<result property="tradeNo" column="trade_no"/>
+		<result property="tradeCommentMemberId" column="trade_comment_member_id"/>
+		<result property="tradeCommentContent" column="trade_comment_content"/>
+		<result property="tradeCommentTimePosted" column="trade_comment_time_posted"/>
+	</resultMap>
+	<insert id="writeTrade" parameterType="tradeVO" >
+		insert into trade_borad( trade_title, trade_member_id, trade_content, trade_time_posted)
+		values( #{tradeTitle},#{memberId},#{tradeContent}, sysdate())
+	</insert>
+	<select id="getTradeList" resultMap="tradeRM">
+	select trade_no, trade_title, trade_member_id, DATE_FORMAT(trade_time_posted, '%Y-%m-%d') as trade_time_posted,trade_hit 
+	from trade_board 
+	order by trade_no 
+	limit 0,10
+	</select>
+	<select id="showContent" resultMap="tradeRM">
+	select  trade_no, trade_title, trade_member_id, trade_content, trade_time_posted, trade_hit
+	from trade_board 
+	where trade_no=#{value}
+	</select>
+
+	<delete id="deleteTrade">
+	delete from trade_board where trade_no=#{value}
+	</delete> 
+	<update id="updateTrade" parameterType="tradeVO">
+	update trade_board set trade_title=#{tradeTitle}, trade_content=#{tradeContent}
+	where trade_no=#{tradeNo}
+	</update>
+	<select id="totalContent" resultType="int">
+		select count(*) from trade_board
+	</select>	
+	<update id="updateCount" >
+	update trade_board set trade_hit=trade_hit+1 where trade_no=#{value}  
+	</update>
+	<select id="getCommentListByTradeNo" parameterType="int" resultMap="tradeCommentRM">
+		select trade_comment_no, trade_no, trade_comment_member_id, trade_comment_content,DATE_FORMAT(trade_comment_time_posted, '%Y-%m-%d') as trade_comment_time_posted 
+		from trade_comment where trade_no=#{value}
+		order by trade_comment_no
+	</select>
+	
+	<select id="countTradeCommentBytradeNo" parameterType="int" resultType="int">
+		select count(trade_no) from trade_comment where trade_no=#{value}
+	</select>
+	
+ </mapper> 
