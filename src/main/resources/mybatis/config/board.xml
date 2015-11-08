@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="board"> 
+   
+     <resultMap type="bvo" id="boardListRM">
+		<result property="talkNo" column="talk_no" />			
+		<result property="talkMemberId" column="talk_member_id" /> 
+		<result property="talkTimePosted" column="talk_time_posted" /> 
+		<result property="talkContents" column="talk_contents" /> 
+	</resultMap>
+	
+	<insert id="write" parameterType="bvo" > 
+  insert into testabcd.talk_board(
+	 talk_member_id, talk_time_posted, talk_contents  
+  )  values(#{talkMemberId}, now(), #{talkContents})
+  </insert>
+	
+	<select id="getBoardList" resultMap="boardListRM">
+SELECT talk_no, talk_member_id, talk_contents,
+	DATE_FORMAT(talk_time_posted,'%Y.%m.%d %H:%i') as talk_time_posted
+	FROM talk_board
+	order by talk_no desc limit 0,10
+	</select>
+	
+	<delete id="deleteBoard">
+	delete from talk_board where talk_no=#{value}
+	</delete> 
+	
+	<!-- <select id="showContent" resultMap="boardListRM">
+	select  notice_no, notice_title, notice_member_id, notice_content, notice_time_posted
+	from notice_board 
+	where notice_no=#{value}
+	</select>
+
+	<update id="updateBoard" parameterType="bvo">
+	update notice_board set notice_title=#{noticeTitle}, notice_content=#{noticeContent}
+	where notice_no=#{noticeNo}
+	</update>
+ -->
+	<select id="totalContent" resultType="int">
+		select count(*) from talk_board
+	</select>	
+
+ </mapper> 		
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
