@@ -44,6 +44,16 @@ class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<!-- -1은 제한 없음 5*1024*1024 -->
 		<property name="maxUploadSize" value="-1"></property>
 	</bean>
+		<bean id="uploadPath" class="java.lang.String">
+		<constructor-arg>
+			<value>C:\\java-kosta\\appProgect\\Copy of CarTalkWork-ver2\\src\\main\\webapp</value>
+		</constructor-arg>
+	</bean>
+	<bean id="viewPath" class="java.lang.String">
+      <constructor-arg>
+         <value>upload/</value>
+      </constructor-arg>
+   </bean>
 </beans>
 
 

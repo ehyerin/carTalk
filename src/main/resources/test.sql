@@ -3,15 +3,9 @@
 		
 		
 		select * from trade_board;
-		set @rownum:=0;
-
-SELECT
-    @ROWNUM := @ROWNUM + 1 AS ROWNUM,
-    trade_board.* 
-FROM
-   trade_board,
-    (SELECT @ROWNUM := 0) R
-    
+	select * from trade_comment;
+				insert into trade_comment( trade_no, trade_comment_member_id, trade_comment_content, trade_comment_time_posted)
+		values(4, 'aaaa', '댓글 테스트', sysdate())
     
 		SELECT @ROWNUM := @ROWNUM + 1 AS ROWNUM , trade_no, trade_title, trade_member_id, trade_time_posted,trade_hit, trade_board.* 
 		FROM 

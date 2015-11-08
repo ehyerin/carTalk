@@ -7,7 +7,7 @@
 		$("#tradeWrite").click(function(){
 			obj.getById["tradeContent"].exec("UPDATE_CONTENTS_FIELD", []);
 			if($("#tradeTitle").val()==""){
-				alert("제목을 입력하세요!");
+				alert("제목을 입력하세요");
 				return false;
 			}
 			$("#tradeWriteForm").submit();

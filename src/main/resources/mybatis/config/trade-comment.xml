@@ -11,15 +11,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="tradeCommentTimePosted" column="trade_comment_time_posted"/>
 	</resultMap>
 	<insert id="writeComment" parameterType="tradeCommentVO">
-		<selectKey keyProperty="tradeCommentNo" resultType="int" order="BEFORE">
-			select trade_comment_seq.nextval from dual
-		</selectKey>
-		insert into trade_comment(trade_comment_no, trade_no, trade_comment_member_id, trade_comment_content, trade_comment_time_posted)
-		values(#{tradeCommentNo}, #{tradeNo}, #{tradeCommentMemberId}, #{tradeCommentContent}, sysdate)
+		insert into trade_comment( trade_no, trade_comment_member_id, trade_comment_content, trade_comment_time_posted)
+		values( #{tradeNo}, #{tradeCommentMemberId}, #{tradeCommentContent}, sysdate())
 	</insert>
-	<select id="getAllCommentListBytradeNo" parameterType="int" resultMap="tradeCommentRM">
-		select trade_comment_no, trade_no, trade_comment_member_id, trade_comment_content, 
-			to_char(trade_comment_time_posted, 'YYYY/MM/DD HH24:MI:SS') as trade_comment_time_posted 
+	<select id="getAllCommentListByTradeNo" parameterType="int" resultMap="tradeCommentRM">
+		select trade_comment_no, trade_no, trade_comment_member_id, trade_comment_content,  DATE_FORMAT(trade_comment_time_posted, '%Y-%m-%d') as trade_comment_time_posted 
 		from trade_comment where trade_no=#{value}
 		order by trade_comment_no
 	</select>
