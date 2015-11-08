@@ -23,5 +23,6 @@ public interface MemberService {
 	
 	public MemberVO findMemberPassword(MemberVO vo);
 
+	public void registerMember(MemberVO memberVO);
 
 }

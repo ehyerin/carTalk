@@ -42,7 +42,7 @@
 
 	<bean id="uploadPath" class="java.lang.String">
 		<constructor-arg>
-			<value>C:\\Users\\Administrator\\git\\CarPool\\CarTalkWork-ver1\\src\\main\\webapp</value>
+			<value>C:\\java-kosta\\appProgect\\Copy of CarTalkWork-ver2\\src\\main\\webapp</value>
 		</constructor-arg>
 	</bean>
 	<bean id="viewPath" class="java.lang.String">

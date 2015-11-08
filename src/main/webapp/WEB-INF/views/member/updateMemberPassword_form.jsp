@@ -3,17 +3,17 @@
 <script>
 	$(document).ready(function(){
 		$("#memberPasswordUpateForm").submit(function(){
-			if($("#oriMemberPassword").val()!="${sessionScope.loginInfo.memberPassword}"){
+			 if($("#oriMemberPassword").val()!="${sessionScope.loginInfo.memberPassword}"){
 				alert("기존 패스워드가 일치하지 않습니다!");
 				return false;
-			} else if($("#memberPassword").val()!=$("#memberPasswordCheck").val()){
+			} else  if($("#memberPassword").val()!=$("#memberPasswordCheck").val()){
 				alert("새로운 패스워드가 일치하지 않습니다!");
 				return false;
 			} else if($("#oriMemberPassword").val()=="" || $("#memberPassword").val()=="" || $("#memberPasswordCheck").val()==""){
 				alert("패스워드 입력하세요!");
 				return false;
-			} else if($("#memberPassword").val().length>20 || $("#memberPassword").val().length<8){
-				alert("패스워드는 8자이상 20자이하");
+			} else if($("#memberPassword").val().length>20 || $("#memberPassword").val().length<4){
+				alert("패스워드는 4자이상 20자이하 입니다.");
 				return false;
 			}
 		});
@@ -52,7 +52,7 @@
 				</div>
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-danger">update</button>
+						<button type="submit" class="btn btn-danger">수정</button>
 					</div>
 				</div>
 			</form>

@@ -39,12 +39,13 @@
 					</tbody>
 				</table>
 
-
+		      <c:if test="${sessionScope.loginInfo != null}">
 				<div class="col-md-12 col-lg-offset-11">
 					<a href="${initParam.root}trade_write_form.do"><img
 						id="writeImg" src="${initParam.root }/img/boardimg/write_btn.jpg"
 						border="0"></a>
 				</div>
+				</c:if>
 				<br></br> <br>
 				<br>
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;

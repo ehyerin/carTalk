@@ -43,7 +43,10 @@ public class MemberServiceImpl implements MemberService {
 		}
 		return result;
 	}
-	
+	public void registerMember(MemberVO memberVO) {
+		memberDAO.registerMember(memberVO);
+		
+	}
 	/**
 	 * 회원탈퇴
 	 * 탈퇴할 회원의 비밀번호가 일치하면 member table 에서 회원정보를 삭제한다.
