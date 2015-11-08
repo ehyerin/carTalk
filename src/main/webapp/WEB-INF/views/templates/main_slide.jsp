@@ -9,21 +9,21 @@
 	<div class="carousel-inner">		
 		<!-- slide image 1 -->
 		<div class="active item" id="img_slide" align="center" >
-			<img src="${initParam.root }img/ajou1.jpg" >
+			<img src="${initParam.root }img/1.jpg" >
 			<div class="carousel-caption">
 
 			</div>
 		</div>
 		<!-- slide image 2 -->
 		<div class="item" id="img_slide" align="center">
-			<img src="${initParam.root }img/ajou2.jpg" >
+			<img src="${initParam.root }img/2.jpg" >
 			<div class="carousel-caption">
 
 			</div>
 		</div>
 		<!-- slide image 3 -->
 		<div class="item" id="img_slide" align="center">
-			<img src="${initParam.root }img/ajou3.jpg" >
+			<img src="${initParam.root }img/3.jpg" >
 			<div class="carousel-caption">
 
 			</div>

@@ -14,9 +14,6 @@
 			} else if($("#memberEmail").val()==""){
 				alert("이메일 입력하세요!");
 				return false;
-			} else if($("#memberPhone").val()==""){
-				alert("휴대폰번호 입력하세요!");
-				return false;
 			}
 		});
 	});
@@ -52,18 +49,10 @@
 							<br><font color="red"><form:errors path="memberEmail"></form:errors></font>
 						</div>
 					</div>
-					<div class="form-group has-feedback">
-						<div class="col-sm-2">
-							<label for="memberPhone" class="control-label">Phone</label>
-						</div>
-						<div class="col-sm-5">
-							<form:input path="memberPhone" type="text" class="form-control" id="memberPhone" name="memberPhone" value="${sessionScope.loginInfo.memberPhone }" />
-							<br><font color="red"><form:errors path="memberPhone"></form:errors></font>
-						</div>
-					</div>
+			
 					<div class="form-group">
 						<div class="col-sm-offset-2 col-sm-10">
-							<button type="submit" class="btn btn-danger">Update</button>
+							<button type="submit" class="btn btn-danger">수정</button>
 						</div>
 					</div>
 				</form:form>

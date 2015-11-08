@@ -16,10 +16,6 @@
 				alert("이메일을 입력하세요");
 				$("#memberEmail").focus();
 				return false;
-			} else if($("#memberPhone").val()==""){
-				alert("핸드폰번호를 입력하세요");
-				$("#memberPhone").focus();
-				return false;
 			} 
 			$("#serchPasswordForm").submit();
 		});
@@ -56,14 +52,7 @@
 		</div>
 		<br>
 	</div>
-	<div class="form-group">
-		<br>
-		<label for="inputMemberPhone" class="col-lg-1 col-lg-offset-1 control-label">핸드폰</label>
-		<div class="col-lg-6">
-			<input type="text" class="form-control" id="memberPhone" name="memberPhone" placeholder="핸드폰">
-		</div>
-		<br>
-	</div>
+
 	<div class="col-lg-7 col-lg-offset-7">
 		<br>
 		<button type="button" class="btn btn-primary" id="serchPassword" >검색</button>

@@ -7,7 +7,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>	
 	<!-- 사용할 클래스에 대한 별칭을 명시한다.  -->
 	<typeAliases>
-		<typeAlias type="carTalk.member.model.MemberVO" alias="mvo"/>		
+		<typeAlias type="carTalk.member.model.MemberVO" alias="mvo"/>	
+		<typeAlias type="carTalk.talk.model.TalkBoardVO" alias="bvo"/>	
 			<typeAlias type="carTalk.trade.model.TradeVO" alias="tradeVO" />
 		<typeAlias type="carTalk.tradecomment.model.TradeCommentVO"
 			alias="tradeCommentVO" />
@@ -17,6 +18,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     <!-- sql mapping config xml 을 연결 -->
 	<mappers>
 		<mapper resource="mybatis/config/member.xml"/>		
+		<mapper resource="mybatis/config/board.xml"/>	
 		<mapper resource="mybatis/config/trade.xml" />
 		<mapper resource="mybatis/config/trade-comment.xml" />
 		<mapper resource="mybatis/config/trade-file.xml" />

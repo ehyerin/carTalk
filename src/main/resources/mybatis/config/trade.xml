@@ -21,7 +21,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="tradeCommentTimePosted" column="trade_comment_time_posted"/>
 	</resultMap>
 	<insert id="writeTrade" parameterType="tradeVO" >
-		insert into trade_borad( trade_title, trade_member_id, trade_content, trade_time_posted)
+		insert into trade_board( trade_title, trade_member_id, trade_content, trade_time_posted)
 		values( #{tradeTitle},#{memberId},#{tradeContent}, sysdate())
 	</insert>
 	<select id="getTradeList" resultMap="tradeRM">

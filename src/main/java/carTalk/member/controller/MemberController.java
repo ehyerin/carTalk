@@ -114,11 +114,12 @@ public class MemberController {
 	 */
 	@RequestMapping(value="member_register.do",method=RequestMethod.POST)
 	public String registerMember(@Valid MemberVO memberVO, BindingResult result, HttpServletRequest request){
-		System.out.println("컨트롤러로 오는가봉가????"+memberVO);
+	//	System.out.println("컨트롤러로 오는가봉가????"+memberVO);
 
 		if(result.hasErrors()){			
 			return "member_register_form"; 
 		}
+		memberService.registerMember(memberVO);
 		memberVO=memberService.findMemberInfoByMemberId(memberVO.getMemberId());
 		HttpSession session=request.getSession(false);
 		session.setAttribute("loginInfo", memberVO);
@@ -137,6 +138,7 @@ public class MemberController {
 		HttpSession session=request.getSession(false);
 		MemberVO memberVO=(MemberVO)session.getAttribute("loginInfo");
 		memberVO=memberService.findMemberInfoByMemberId(memberVO.getMemberId());
+	//	System.out.println(memberVO+"///2/2/2/ test");
 		return new ModelAndView("member_myPage", "memberInfo", memberVO);
 	}
 	

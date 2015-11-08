@@ -105,7 +105,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav well-lg" style="font-size: 20px">
 				<li><a href="${initParam.root }service_home_usehow.do">서비스안내</a></li>
-        		<li><a href="${initParam.root }feeinfo_home_feeinfo.do">카풀</a></li>        		
+				<li><a href="${initParam.root }talk_list.do">토크방</a></li> 
+        		<li><a href="${initParam.root }carpool_search_form.do">카풀</a></li>        		
 				<li><a href="${initParam.root }trade_list.do">중고거래</a></li>
 				<li><a href="${initParam.root }search_searchForm.do">학교정보</a></li>
 				<c:choose>

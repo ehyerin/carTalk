@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		insert into trade_file(trade_file_no,trade_no, file_path)
 		values(trade_file_seq.nextval,#{tradeNo},#{filePath})
 	</insert>
-	<delete id="deleteFileBytradeNo" parameterType="int">
+	<delete id="deleteFileByTradeNo" parameterType="int">
 		delete from trade_file where trade_no=#{value}
 	</delete>
 </mapper> 		

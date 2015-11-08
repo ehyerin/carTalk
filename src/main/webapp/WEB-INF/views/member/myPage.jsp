@@ -18,14 +18,7 @@
 					<td>E-MAIL</td>
 					<td>${memberInfo.memberEmail }</td>
 				</tr>
-				<tr>
-					<td>PHONE</td>
-					<td>${memberInfo.memberPhone }</td>
-				</tr>
-				<tr>
-					<td>POINT</td>
-					<td>${memberInfo.memberPoint }</td>
-				</tr>
+			
 			</tbody>
 		</table>
 	</div>
