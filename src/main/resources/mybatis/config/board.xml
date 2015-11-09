@@ -24,7 +24,7 @@ SELECT talk_no, talk_member_id, talk_contents,
 	order by talk_no desc limit 0,10
 	</select>
 	
-	<delete id="deleteBoard">
+	<delete id="deleteBoard"> 
 	delete from talk_board where talk_no=#{value}
 	</delete> 
 	
