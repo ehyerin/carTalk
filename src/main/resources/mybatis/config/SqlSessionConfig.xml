@@ -14,6 +14,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 			alias="tradeCommentVO" />
 		<typeAlias type="carTalk.trade.model.TradeFileVO"
 			alias="rfvo" />
+			<typeAlias type="carTalk.carpool.model.CarpoolVO" alias="cvo"/>
 	</typeAliases>	
     <!-- sql mapping config xml 을 연결 -->
 	<mappers>
@@ -22,6 +23,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="mybatis/config/trade.xml" />
 		<mapper resource="mybatis/config/trade-comment.xml" />
 		<mapper resource="mybatis/config/trade-file.xml" />
+		<mapper resource="mybatis/config/carpool.xml" />
 	</mappers>
 </configuration>
 

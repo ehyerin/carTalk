@@ -1,6 +1,7 @@
 select * from talk_board;
 select * from trade_board;
 select * from trade_comment;
+select * from carpool;
 
 select * from member
 select * from testabcd.member where member_id='jh4395' and member_password='1111';
@@ -12,18 +13,19 @@ update testabcd.member set member_name='주니', member_email='jh4395@hanmail.co
 select member_id,member_password,member_name,member_email from testabcd.member
 		where member_id=#{memberId} and member_password=#{memberPassword}
 		
-insert into testabcd.talk_board (talk_member_id,talk_time_posted,talk_contents) values('jh4395',NOW(),'살려줘1')
-delete from testabcd.talk_board;
+insert into talk_board (talk_member_id,talk_time_posted,talk_contents) values('jh4395',NOW(),'살려줘1')
+delete from talk_board;
 
+insert into carpool(
+	 carpool_member_id, carpool_price, carpool_startTime,carpool_endTime,carpool_Companion,carpool_Type
+  )  values('jh439',1000,'2011/11/13 10:01', '2011/11/13 10:10', 3, '등교')
 
 								
 		SELECT talk_no, talk_member_id, talk_contents,
 		DATE_FORMAT(talk_time_posted,'%Y.%m.%d %H:%i') as talk_time_posted
 		FROM talk_board
 		order by talk_no desc limit 0,10
- 	
-	
-		delete from talk_board;
+ 
 		
 					SELECT talk_no, talk_member_id, talk_contents,talk_time_posted
 					from(	 

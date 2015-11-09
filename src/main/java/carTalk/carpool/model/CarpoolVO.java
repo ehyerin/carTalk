@@ -12,6 +12,7 @@ public class CarpoolVO {
 	private int carpoolCompanion;	//카풀 인원
 	private String carpoolType;     //카풀 등교인지 하교인지
 	private ArrayList<String> carpoolDestination; //카풀 목적지 리스트
+	
 	public CarpoolVO() {
 		super();
 		// TODO Auto-generated constructor stub

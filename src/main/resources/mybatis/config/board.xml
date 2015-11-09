@@ -19,7 +19,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="getBoardList" resultMap="boardListRM">
 SELECT talk_no, talk_member_id, talk_contents,
-	DATE_FORMAT(talk_time_posted,'%Y.%m.%d %H:%i') as talk_time_posted
+	DATE_FORMAT(talk_time_posted,'%Y-%m-%d %H:%i') as talk_time_posted
 	FROM talk_board
 	order by talk_no desc limit 0,10
 	</select>

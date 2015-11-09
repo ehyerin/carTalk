@@ -110,6 +110,11 @@ function initialize() {
 		});
 		
 		$("#DestinationAddBtn").click(function(){
+			if($("#carpoolDestination").val()==""||$("#map_canvas").html()=="위도와 경도를 찾을 수 없습니다.")
+			{
+				alert("지역을 찾을 수 없습니다");
+			}
+				else{
 			if(destination=="")
 			destination += $("#carpoolDestination").val();
 			else
@@ -118,7 +123,8 @@ function initialize() {
 			$("#DestinationAddResult").html(destination+" <input type='button' class='btn btn-primary' id='DestinationDeleteBtn' value='전체삭제'>");
 			$("#Destinationlist").html(destinationlist);
 			$("#carpoolDestination").val("");
-
+			
+				}
 		});
 		
 		$("#DestinationAddResult").on("click","#DestinationDeleteBtn",function(){
