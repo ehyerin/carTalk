@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="carpool"> 
+   
+     <resultMap type="cvo" id="carpoolListRM">
+		<result property="carpoolNo" column="carpool_no" />			
+		<result property="carpoolMemberId" column="carpool_member_id" /> 
+		<result property="carpoolPrice" column="carpool_price" /> 
+		<result property="carpoolstartTime" column="carpool_startTime" /> 
+		<result property="carpoolendTime" column="carpool_endTime" /> 
+		<result property="carpoolCompanion" column="carpool_Companion" /> 
+		<result property="carpoolType" column="carpool_Type" /> 
+	</resultMap>
+	
+	<insert id="register" parameterType="cvo"> 
+  insert into carpool(
+	 carpool_member_id, carpool_price, carpool_startTime,carpool_endTime,carpool_Companion,carpool_Type
+  )  values(#{carpoolMemberId},#{carpoolPrice}, #{carpoolstartTime}, #{carpoolendTime}, #{carpoolCompanion}, #{carpoolType})
+  </insert>
+
+ </mapper> 		
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
