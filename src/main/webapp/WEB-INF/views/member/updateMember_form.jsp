@@ -8,10 +8,7 @@
 			if(!email_regex.test($("#memberEmail").val())){
 				alert("이메일 형식에 맞게 입력하세요!");
 				return false;
-			} else if(isNaN($("#memberPhone").val())){
-				alert("휴대폰번호는 숫자로 입력하세요!");
-				return false;
-			} else if($("#memberEmail").val()==""){
+			}else if($("#memberEmail").val()==""){
 				alert("이메일 입력하세요!");
 				return false;
 			}

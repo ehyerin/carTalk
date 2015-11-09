@@ -105,7 +105,7 @@ function initialize() {
 					</fieldset>	  		
 					<div class="form-group">
 						<div class="col-sm-3 col-sm-offset-2">
-							<label for="carpoolDestination" class="control-label">목적지</label>
+							<label for="carpoolDestination" class="control-label">출발지/목적지</label>
 						</div>
 						<div class="col-sm-5">
 							<input type="text" class="form-control" id="carpoolDestination" name="carpoolDestination" placeholder="지역">

@@ -46,7 +46,9 @@ public class TradeController {
 	@RequestMapping(value = "auth_trade_write.do", method = RequestMethod.POST)
 	public ModelAndView write(TradeVO vo) {
 		tradeService.writeTradeSavingPoint(vo);
-		return new ModelAndView("redirect:trade_showContentNoHit.do?tradeNo="+ vo.getTradeNo());
+		//System.out.println(vo+"test");
+	//	return new ModelAndView("redirect:trade_showContentNoHit.do?tradeNo="+ vo.getTradeNo());
+		return new ModelAndView("redirect:trade_list.do");
 	}
 	
 	/**

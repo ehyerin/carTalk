@@ -27,7 +27,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<select id="getTradeList" resultMap="tradeRM">
 	select trade_no, trade_title, trade_member_id, DATE_FORMAT(trade_time_posted, '%Y-%m-%d') as trade_time_posted,trade_hit 
 	from trade_board 
-	order by trade_no 
+	order by trade_no  desc
 	limit 0,10
 	</select>
 	<select id="showContent" resultMap="tradeRM">
