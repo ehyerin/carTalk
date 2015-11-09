@@ -12,7 +12,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</resultMap>
 	
 	<insert id="write" parameterType="bvo" > 
-  insert into testabcd.talk_board(
+  insert into talk_board(
 	 talk_member_id, talk_time_posted, talk_contents  
   )  values(#{talkMemberId}, now(), #{talkContents})
   </insert>
