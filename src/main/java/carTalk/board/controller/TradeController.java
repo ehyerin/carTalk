@@ -29,7 +29,7 @@ public class TradeController {
 	private TradeService tradeService;
 	
 	/**
-	 * 이용후기 작성 폼으로 이동한다.
+	 * 중고거래 작성 폼으로 이동한다.
 	 * @return
 	 */
 	@RequestMapping("auth_trade_write_form.do")
@@ -38,7 +38,7 @@ public class TradeController {
 	}
 
 	/**
-	 * 이용후기 등록
+	 * 중고거래 등록
 	 * 게시글을 insert 새로고침시 재입력을 막기 위해 redirect 시킨다. post 방식일때만 등록가능
 	 * @param vo
 	 * @return
@@ -50,7 +50,7 @@ public class TradeController {
 	}
 	
 	/**
-	 * 이용후기 작성 시 파일업로드
+	 * 중고거래 작성 시 파일업로드
 	 * 스마트 에디터를 사용해 파일을 삽입할 때 서버에 저장하고 에디터에 이미지 태그의 경로를 입력한다.
 	 * @param request
 	 * @param response
@@ -152,7 +152,7 @@ public class TradeController {
 		return mv;
 	}
 	/**
-	 * 작성한 이용후기를 삭제
+	 * 작성한 중고거래를 삭제
 	 * @param tradeNo
 	 * @return
 	 */
@@ -163,7 +163,7 @@ public class TradeController {
 				tradeService.getTradeList("1"));
 	}
 	/**
-	 * 이용후기 수정 폼으로 이동
+	 * 중고거래 수정 폼으로 이동
 	 * @param vo
 	 * @return
 	 */
@@ -173,7 +173,7 @@ public class TradeController {
 				"vo", tradeService.showContentNoHit(vo.getTradeNo()));
 	}
 	/**
-	 * 이용후기 수정
+	 * 중고거래 수정
 	 * @param vo
 	 * @return
 	 */

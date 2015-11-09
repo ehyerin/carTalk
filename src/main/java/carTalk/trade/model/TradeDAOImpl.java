@@ -21,13 +21,13 @@ public class TradeDAOImpl implements TradeDAO {
 		sqlSessionTemplate.insert("trade.writeTrade", vo);
 	}
 	/**
-	 * 이용후기 수정
+	 * 중고거래 수정
 	 */
 	public void updateTrade(TradeVO vo) {
 		sqlSessionTemplate.update("trade.updateTrade", vo);
 	}
 	/**
-	 * 이용후기 삭제
+	 * 중고거래 삭제
 	 */
 	public void deleteTrade(int tradeNo) {
 		sqlSessionTemplate.delete("trade.deleteTrade", tradeNo);
@@ -39,7 +39,7 @@ public class TradeDAOImpl implements TradeDAO {
 		return sqlSessionTemplate.selectList("trade.getTradeList", pageNo);
 	}
 	/**
-	 * 이용후기 상세보기 
+	 * 중고거래 상세보기 
 	 */
 	public TradeVO showContent(int tradeNo) {
 		return sqlSessionTemplate.selectOne("trade.showContent", tradeNo);

@@ -4,7 +4,7 @@
 
 <div class="container">
 	<div class="col-lg-2">
-		<h4>중고거래</h4>
+		<h3>중고거래</h3>
 	</div>
 </div>
 <div class="section">

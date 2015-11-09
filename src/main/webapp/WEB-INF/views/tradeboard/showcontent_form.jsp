@@ -193,7 +193,7 @@
 </script>
 <form class="form-horizontal" method="post" id="tradeForm">
 	<fieldset>
-		<legend>이용후기 내용</legend>
+		<legend>중고거래 내용</legend>
 		<div class="form-group">
 			<label for="inputMemberId" class="col-lg-2 control-label">아이디</label>
 			<div class="col-lg-9">

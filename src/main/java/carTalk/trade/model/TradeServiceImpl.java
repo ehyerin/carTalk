@@ -30,7 +30,7 @@ public class TradeServiceImpl implements TradeService {
 	private String viewPath;
 	
 	/**
-	 * 이용후기를 등록하고 tradeContent 에 있는 이미지 태그를 추출해 파일을 등록한다.
+	 * 중고거래를 등록하고 tradeContent 에 있는 이미지 태그를 추출해 파일을 등록한다.
 	 */
 	@Override
 	public void writeTradeSavingPoint(TradeVO vo) {
@@ -38,7 +38,7 @@ public class TradeServiceImpl implements TradeService {
 		registerFile(vo);
 	}
 	/**
-	 * 이용후기를 수정한다.
+	 * 중고거래를 수정한다.
 	 */
 	@Transactional
 	@Override
@@ -47,7 +47,7 @@ public class TradeServiceImpl implements TradeService {
 		registerFile(vo);
 	}
 	/**
-	 * 이용후기를 삭제하고 함께 등록된 사진도 삭제한다.
+	 * 중고거래를 삭제하고 함께 등록된 사진도 삭제한다.
 	 */
 	@Transactional
 	@Override
@@ -56,9 +56,9 @@ public class TradeServiceImpl implements TradeService {
 		tradeDAO.deleteFileByTradeNo(tradeNo);
 	}
 	/**
-	 * 이용후기 페이지로 들어갔을때 
-	 * 일반 이용후기를 보여주기위한 메서드 
-	 * 해당 페이지에 들어갈 이용후기 리스트를 받아서
+	 * 중고거래 페이지로 들어갔을때 
+	 * 일반 중고거래를 보여주기위한 메서드 
+	 * 해당 페이지에 들어갈 중고거래 리스트를 받아서
 	 * 글 번호로 댓글 수와 추천수를 setting하여 페이징빈화함께
 	 * ListVO로 리턴한다.
 	 */
@@ -77,7 +77,7 @@ public class TradeServiceImpl implements TradeService {
 		return lvo;
 	}
 	/**
-	 * 이용후기 상세보기 메서드
+	 * 중고거래 상세보기 메서드
 	 */
 	
 	@Override

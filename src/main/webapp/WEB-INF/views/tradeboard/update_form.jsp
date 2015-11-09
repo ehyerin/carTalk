@@ -23,7 +23,7 @@
 
 <form class="form-horizontal" method="post" action="${initParam.root }trade_update.do" id="tradeUpdateForm">
    <fieldset>
-    <legend>이용후기 수정</legend>
+    <legend>중고거래 수정</legend>
     <div class="form-group">
       <label for="inputMemberId" class="col-lg-2 control-label">아이디</label>
       <div class="col-lg-5">
