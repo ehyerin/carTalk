@@ -104,7 +104,7 @@ function initialize() {
 						<legend>카풀찾기</legend>
 					</fieldset>	  		
 					<div class="form-group">
-						<div class="col-sm-3 col-sm-offset-2">
+						<div class="col-sm-4 col-sm-offset-1">
 							<label for="carpoolDestination" class="control-label">출발지/목적지</label>
 						</div>
 						<div class="col-sm-5">
