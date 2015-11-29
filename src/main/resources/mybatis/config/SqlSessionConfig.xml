@@ -9,12 +9,14 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<typeAlias type="carTalk.member.model.MemberVO" alias="mvo"/>	
 		<typeAlias type="carTalk.talk.model.TalkBoardVO" alias="bvo"/>	
-			<typeAlias type="carTalk.trade.model.TradeVO" alias="tradeVO" />
+		<typeAlias type="carTalk.trade.model.TradeVO" alias="tradeVO" />
 		<typeAlias type="carTalk.tradecomment.model.TradeCommentVO"
 			alias="tradeCommentVO" />
 		<typeAlias type="carTalk.trade.model.TradeFileVO"
 			alias="rfvo" />
-			<typeAlias type="carTalk.carpool.model.CarpoolVO" alias="cvo"/>
+		<typeAlias type="carTalk.carpool.model.CarpoolVO" alias="cvo"/>
+		<typeAlias type="carTalk.carpool.model.CarpoolLocationVO" alias="clvo"/>
+		<typeAlias type="carTalk.carpool.model.CarpoolSearchVO" alias="csvo"/>
 	</typeAliases>	
     <!-- sql mapping config xml 을 연결 -->
 	<mappers>

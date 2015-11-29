@@ -12,14 +12,66 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result property="carpoolendTime" column="carpool_endTime" /> 
 		<result property="carpoolCompanion" column="carpool_Companion" /> 
 		<result property="carpoolType" column="carpool_Type" /> 
+		<result property="carpoolDestination" column="carpool_location" /> 
+	</resultMap>
+	
+	<resultMap type="clvo" id="carpoolLocationListRM">
+		<result property="carpoolNo" column="carpool_no"/>
+		<result property="carpoolLoction" column="carpool_location"/>
 	</resultMap>
 	
 	<insert id="register" parameterType="cvo"> 
   insert into carpool(
 	 carpool_member_id, carpool_price, carpool_startTime,carpool_endTime,carpool_Companion,carpool_Type
   )  values(#{carpoolMemberId},#{carpoolPrice}, #{carpoolstartTime}, #{carpoolendTime}, #{carpoolCompanion}, #{carpoolType})
+   <selectKey keyProperty="carpoolNo"  resultType="int">
+       select LAST_INSERT_ID()
+   </selectKey>
   </insert>
 
+	<insert id="registerlocation" parameterType="clvo">
+	insert into carpool_location(carpool_no,carpool_location)
+	  values (#{carpoolNo},#{carpoolLoction})
+	</insert>
+	
+	<select id="searchCarpoolList" parameterType="csvo" resultMap="carpoolListRM">
+	<![CDATA[
+SELECT carpool.carpool_member_id,carpool.carpool_no,carpool.carpool_startTime, 
+carpool.carpool_endTime,carpool.carpool_Companion,carpool.carpool_Type,carpool.carpool_price
+FROM carpool
+INNER JOIN carpool_location
+ON carpool.carpool_no=carpool_location.carpool_no
+and carpool_location.carpool_location like concat ('%',#{searchCarpoolLoction},'%')
+and  #{searchCarpoolTime}>= carpool.carpool_startTime
+and  #{searchCarpoolTime}<= carpool.carpool_endTime
+and  #{searchCarpoolType} = carpool.carpool_Type
+and  #{searchCarpoolCompanion} <= carpool.carpool_Companion
+ORDER BY carpool.carpool_endTime desc
+]]>
+	</select>
+	
+	<select id="getsearchcarpoollocationlist" parameterType="hashmap" resultType="String">
+	select carpool_location from carpool_location 
+	where carpool_no=#{carpoolNo} and 
+	carpool_location like concat ('%',#{carpoolLocation},'%')
+	</select>
+	
+	<select id="getmycarpoollist" resultMap="carpoolListRM">
+	select carpool_no,carpool_member_id, carpool_price, carpool_startTime,carpool_endTime,carpool_Companion,carpool_Type
+	from carpool where carpool_member_id=#{value}
+	</select>
+	
+	<select id="getmycarpoollocationlist" resultType="String">
+	select carpool_location
+	from carpool_location where carpool_no=#{value}
+	</select>
+	
+	<delete id="deletecarpool">
+	delete from carpool where carpool_no=#{value}
+	</delete>
+	<delete id="deletecarpoolloction">
+	delete from carpool_location where carpool_no=#{value}
+	</delete>
  </mapper> 		
  
  

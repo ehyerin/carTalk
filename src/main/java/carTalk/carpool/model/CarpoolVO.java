@@ -1,6 +1,7 @@
 package carTalk.carpool.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class CarpoolVO {
 	
@@ -11,7 +12,7 @@ public class CarpoolVO {
 	private String carpoolendTime;			//카풀 되는시간 구간
 	private int carpoolCompanion;	//카풀 인원
 	private String carpoolType;     //카풀 등교인지 하교인지
-	private ArrayList<String> carpoolDestination; //카풀 목적지 리스트
+	private List<String> carpoolDestination; //카풀 목적지 리스트
 	
 	public CarpoolVO() {
 		super();
@@ -73,10 +74,10 @@ public class CarpoolVO {
 	public void setCarpoolType(String carpoolType) {
 		this.carpoolType = carpoolType;
 	}
-	public ArrayList<String> getCarpoolDestination() {
+	public List<String> getCarpoolDestination() {
 		return carpoolDestination;
 	}
-	public void setCarpoolDestination(ArrayList<String> carpoolDestination) {
+	public void setCarpoolDestination(List<String> carpoolDestination) {
 		this.carpoolDestination = carpoolDestination;
 	}
 	@Override

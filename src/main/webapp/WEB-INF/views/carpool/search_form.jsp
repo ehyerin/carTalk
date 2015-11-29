@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>map-test</title>
-</head>
+
 
 <!-- 데이터 타임피커 -->
 <link rel="stylesheet" href="//cdn.rawgit.com/xdan/datetimepicker/master/jquery.datetimepicker.css">
@@ -59,7 +54,7 @@ function initialize() {
 				});		
 		}else
 			$("#map_canvas").html("위도와 경도를 찾을 수 없습니다.");
-	})
+	});
 } 
  
 	$(function(){
@@ -77,6 +72,37 @@ function initialize() {
 		});
 
 	});
+	
+	 
+	 $(document).ready(function(){
+
+		 $("#carpoolSearchForm").submit(function(){
+			if($("#carpoolDestination").val()==""||$("#map_canvas").html()=="위도와 경도를 찾을 수 없습니다.")
+			{
+				alert("지역을 입력하세요!");
+				return false;
+			}
+			 else if($("#carpoolTime").val()==""){
+					alert("시작시간을 입력하세요!");
+					return false;
+				}
+			 else if($("#carpoolType").val()==""){
+					alert("등하교를 선택하세요!");
+					return false;
+					}
+			 else if($("#carpoolCompanion").val()==""){
+					alert("인원을 선택하세요!");
+					return false;
+					}
+		 
+		 });
+		 
+		 $("#carpoolAllSearchBtn").click(function(){
+			 location.href="carpool_allSearch.do"; 
+		 });
+		 
+		
+	 });
  
  	/*
  //동적으로 생성되는 아이콘의 이벤트 
@@ -93,13 +119,12 @@ function initialize() {
 
 <body onload="initialize()"> 
 
-<%-- <img src="${initParam.root}img/logo2.jpg" width="100" height="40" onmouseover="mapping('주형이집','경기도 용인시' ,'수지구 상현동')">
-	 --%>
+
 <div class="section">
 	<div class="container">
 		<div class="row">
 		  	<div class="col-md-4">
-				<form class="form-horizontal" id="searchForm">
+				<form class="form-horizontal" action="${initParam.root}carpool_search.do"  id="carpoolSearchForm">
 					<fieldset>
 						<legend>카풀찾기</legend>
 					</fieldset>	  		
@@ -108,7 +133,7 @@ function initialize() {
 							<label for="carpoolDestination" class="control-label">출발지/목적지</label>
 						</div>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" id="carpoolDestination" name="carpoolDestination" placeholder="지역">
+							<input type="text" class="form-control" id="carpoolDestination" name="searchCarpoolLoction" placeholder="지역">
 						</div>
 					</div>
 					<span id="DestinationAddResult"></span>
@@ -117,7 +142,7 @@ function initialize() {
 							<label for="carpoolTime" class="control-label">시간</label>
 						</div>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" id="carpoolTime" name="carpoolTime" placeholder="YYYY/MM/DD HH:MM" value="2015/11/01">
+							<input type="text" class="form-control" id="carpoolTime" name="searchCarpoolTime" placeholder="YYYY/MM/DD HH:MM">
 						</div>
 					</div>
 					<div class="form-group">
@@ -125,7 +150,8 @@ function initialize() {
 							<label for="carpoolType" class="control-label">등하교</label>
 						</div>
 						<div class="col-sm-5">
-							<select id="carpoolType" name="carpoolType" class="form-control">
+							<select id="carpoolType" name="searchCarpoolType" class="form-control">
+								<option value="">전체</option>
 								<option value="등교">등교</option>
 								<option value="하교">하교</option>
 							</select>
@@ -136,19 +162,22 @@ function initialize() {
 							<label for="carpoolCompanion" class="control-label">인원</label>
 						</div>
 						<div class="col-sm-5">
-							<select id="carpoolCompanion" name="carpoolCompanion" class="form-control">
-								<option value="all">인원</option>
+							<select id="carpoolCompanion" name="searchCarpoolCompanion" class="form-control">
+								<option value="">전체</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>
 							</select>
 						</div>
 					</div>
-					 <div class="form-group">
+					
+					<div class="form-group">
 						<div class="col-sm-offset-7 col-sm-7">
-							<button type="button" class="btn btn-default" id="carpoolSearchBtn">검색</button>
+							<button type="submit" class="btn btn-default" id="carpoolSearchBtn">검색</button>
+							<button type="button" class="btn btn-default" id="carpoolAllSearchBtn">전체보기</button>
 						</div>
 					</div>
+				
 				</form>
 			</div>
 			
@@ -159,76 +188,5 @@ function initialize() {
 		</div>
 </div>	
 			
-			<%-- 	
-			<div class="col-md-12" id="carSearchResultView">
-			<table class="table table-hover" id="carTable">
-					<thead>
-						<tr>
-							<td class="info">
-								<div class="col-md-1"><p class="text-center"><strong>유카존</strong></p></div>
-								<div class="col-md-2"></div>
-								<div class="col-md-6"><p class="text-center"><strong>차량정보</strong></p></div>
-								<div class="col-md-1"><p class="text-center"><strong>대여요금</strong></p></div>
-								<div class="col-md-1"><p class="text-center"><strong>주행요금</strong></p></div>
-								<div class="col-md-1"></div>
-							</td>
-						</tr>
-					</thead>
-					<tbody>
-						<c:forEach items="${realtimeSearchResult }" var="searchResult">
-							<tr>
-								<td>
-									<div class="row">
-										<div class="col-md-1"><p class="text-center">${searchResult.carVO.uCarZoneVO.uCarZoneName }</p></div>
-										<div class="col-md-2"><img src="${initParam.root}/img/house.jpg" alt="..." width="150" height="150"></div>
-										<div class="col-md-6">
-											<div class="row">
-												<div class="col-md-12" style="height: 50px">
-													소나타&nbsp;&nbsp;<strong>소나타1</strong>
-													<p class="pull-right">기름&nbsp;&nbsp;</p>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-md-12" style="height: 50px">
-													<strong>옵션</strong> 
-													<c:forEach items="${searchResult.carVO.carModelInfoVO.carOption }" var="carOption">
-														/ ${carOption }&nbsp;
-													</c:forEach>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-md-12" style="height: 50px">
-													${searchResult.rentalDate } ~ ${searchResult.returnDate }
-												</div>
-											</div>
-										</div>
-										<div class="col-md-1 text-center"><p class="text-center">${searchResult.rentalPrice } 원</p></div>
-										<div class="col-md-1 text-center"><p class="text-center">${searchResult.carVO.carModelInfoVO.drivingFee } 원<br>(1km)</p></div>
-										<div class="col-md-1 text-center">
-											<c:choose>
-												<c:when test="${searchResult.carVO.available }">
-													<form action="${initParam.root}auth_reservation_reservationCar.do" method="post" id="${searchResult.carVO.carNo }Form">
-														<input type="hidden" name="rentalDate" value="${searchResult.rentalDate }">
-														<input type="hidden" name="returnDate" value="${searchResult.returnDate }">
-														<input type="hidden" name="memberId" value="${sessionScope.loginInfo.memberId}">
-														<input type="hidden" name="carNo" value="${searchResult.carVO.carNo }">
-														<input type="hidden" name="rentalPrice" value="${searchResult.rentalPrice }">
-														<input type="hidden" name="rentalUcarZoneName" value="${searchResult.carVO.uCarZoneVO.uCarZoneName }">
-														<button type="button" class="btn btn-default btn-sm" id="reserveBtn" value="${searchResult.carVO.carNo }">Reserve</button>
-													</form>
-												</c:when>
-												<c:otherwise>
-													<button type="button" class="btn btn-default btn-sm disabled">Reserve</button>
-												</c:otherwise>
-											</c:choose>
-										</div>
-									</div>
-								</td>
-							</tr>
-						</c:forEach>						
-					</tbody>
-				</table> 
-				</div>--%>
 
 </body>
-</html>

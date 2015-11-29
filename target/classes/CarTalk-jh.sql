@@ -2,8 +2,27 @@ select * from talk_board;
 select * from trade_board;
 select * from trade_comment;
 select * from carpool;
+select * from carpool_location;
+select * from member;
+select LAST_INSERT_ID();
+ select LAST(carpool_no) from carpool;
+ 
+ 
+SELECT carpool.carpool_no,carpool.carpool_startTime, carpool.carpool_endTime,
+carpool.carpool_Companion,carpool.carpool_Type,carpool_location.carpool_location as carpool
+FROM carpool
+INNER JOIN carpool_location
+ON carpool.carpool_no=carpool_location.carpool_no
+and carpool_location.carpool_location like concat ('%','시청','%')
+and '1' <= carpool.carpool_Companion
+and '2015-11-29 18:30'>= carpool.carpool_startTime
+and '2015-11-29 18:30'<= carpool.carpool_endTime
+and '하교' = carpool.carpool_Type
+ORDER BY carpool.carpool_endTime desc;
 
-select * from member
+
+delete from carpool where carpool_no='1'
+
 select * from testabcd.member where member_id='jh4395' and member_password='1111';
 select member_id,member_password,member_name,member_email from testabcd.member where member_id='jh4395' and member_password='1111';
 insert into testabcd.member (member_id,member_password,member_name,member_email) values('jh4395','1234','이주형','jh4395@ajou.ac.kr')
@@ -18,7 +37,7 @@ delete from talk_board;
 
 insert into carpool(
 	 carpool_member_id, carpool_price, carpool_startTime,carpool_endTime,carpool_Companion,carpool_Type
-  )  values('jh439',1000,'2011/11/13 10:01', '2011/11/13 10:10', 3, '등교')
+  )  values('jh4395',1000,'2011/11/13 10:01', '2011/11/13 10:10', 3, '등교')
 
 								
 		SELECT talk_no, talk_member_id, talk_contents,

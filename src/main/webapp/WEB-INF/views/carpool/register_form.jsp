@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>map-test</title>
-</head>
+
 
 <!-- 데이터 타임피커 -->
 <link rel="stylesheet" href="//cdn.rawgit.com/xdan/datetimepicker/master/jquery.datetimepicker.css">
@@ -94,6 +89,7 @@ function initialize() {
 	 
 	 	var destination= "";
 		var destinationlist="";
+		var count=0;
 		
 		$("#carpoolstartTime").datetimepicker({
 			minDate: 0, 
@@ -110,17 +106,27 @@ function initialize() {
 		});
 		
 		$("#DestinationAddBtn").click(function(){
+			
 			if($("#carpoolDestination").val()==""||$("#map_canvas").html()=="위도와 경도를 찾을 수 없습니다.")
 			{
 				alert("지역을 찾을 수 없습니다");
 			}
+			 else if(destination.indexOf($("#carpoolDestination").val())>-1){
+				alert("이미 등록하신 지역입니다.");
+			} 
+			 else if(count>2){
+				 alert("지역은 3군데 까지 가능합니다.");
+			 }
 				else{
+					count++;
+					//지역 추가시 3군데 이상 입력시 제한 
+			
 			if(destination=="")
 			destination += $("#carpoolDestination").val();
 			else
 			destination += ", "+ $("#carpoolDestination").val();
 			destinationlist+="<input type='hidden' name='carpoolDestination' value="+ $("#carpoolDestination").val()+">";
-			$("#DestinationAddResult").html(destination+" <input type='button' class='btn btn-primary' id='DestinationDeleteBtn' value='전체삭제'>");
+			$("#DestinationAddResult").html(destination+" <input type='button' class='btn btn-primary btn-sm' id='DestinationDeleteBtn' value='전체삭제'>");
 			$("#Destinationlist").html(destinationlist);
 			$("#carpoolDestination").val("");
 			
@@ -128,6 +134,7 @@ function initialize() {
 		});
 		
 		$("#DestinationAddResult").on("click","#DestinationDeleteBtn",function(){
+			count=0;
 			destination="";
 			destinationlist="";
 			$("#DestinationAddResult").html("");
@@ -159,10 +166,10 @@ function initialize() {
 							<label for="carpoolDestination" class="control-label">출발지/목적지</label>
 						</div>
 						<div class="col-sm-5">
-							<input type="text" class="form-control" id="carpoolDestination" placeholder="지역">
+							<input type="text" class="form-control" id="carpoolDestination" placeholder="지역(3군데)">
 						</div>
 						<div class="col-sm-1">
-							<button type="button" class="btn btn-primary" id="DestinationAddBtn">추가</button>
+							<button type="button" class="btn btn-primary btn-sm" id="DestinationAddBtn">추가</button>
 						</div>
 					</div>
 					<div id="DestinationAddResult"></div>
@@ -233,4 +240,3 @@ function initialize() {
 
 
 </body>
-</html>
