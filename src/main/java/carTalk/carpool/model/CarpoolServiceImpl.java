@@ -26,6 +26,17 @@ public class CarpoolServiceImpl implements CarpoolService {
 	/**
 	 * 2. 카풀 찾기
 	 */
+	
+	@Override
+	public List<CarpoolVO> getAllSearchCarpoolList(String carpooltype) {
+		List<CarpoolVO> searchList =carpoolDAO.getAllSearchCarpoolList(carpooltype);	
+		for(int i=0; i<searchList.size(); i++){			
+			List<String> carpoolSearchLocationList = carpoolDAO.getMyCarpoolLoctionList(searchList.get(i).getCarpoolNo());
+			searchList.get(i).setCarpoolDestination(carpoolSearchLocationList);
+		}	
+		return searchList;
+	}
+	
 	@Override
 	public List<CarpoolVO> getSearchCarpoolList(CarpoolSearchVO csvo) {
 		List<CarpoolVO> searchList =carpoolDAO.getSearchCarpoolList(csvo);	

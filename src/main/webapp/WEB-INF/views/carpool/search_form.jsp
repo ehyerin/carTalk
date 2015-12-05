@@ -151,7 +151,6 @@ function initialize() {
 						</div>
 						<div class="col-sm-5">
 							<select id="carpoolType" name="searchCarpoolType" class="form-control">
-								<option value="">전체</option>
 								<option value="등교">등교</option>
 								<option value="하교">하교</option>
 							</select>
@@ -163,7 +162,6 @@ function initialize() {
 						</div>
 						<div class="col-sm-5">
 							<select id="carpoolCompanion" name="searchCarpoolCompanion" class="form-control">
-								<option value="">전체</option>
 								<option value="1">1</option>
 								<option value="2">2</option>
 								<option value="3">3</option>

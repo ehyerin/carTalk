@@ -50,6 +50,11 @@ ORDER BY carpool.carpool_endTime desc
 ]]>
 	</select>
 	
+	<select id="searchAllCarpoolListbyCarpoolType" resultMap="carpoolListRM">
+	select carpool_no,carpool_member_id, carpool_price, carpool_startTime,carpool_endTime,carpool_Companion,carpool_Type
+	from carpool where carpool_Type=#{value}
+	</select>
+	
 	<select id="getsearchcarpoollocationlist" parameterType="hashmap" resultType="String">
 	select carpool_location from carpool_location 
 	where carpool_no=#{carpoolNo} and 

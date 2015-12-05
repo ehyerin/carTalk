@@ -25,4 +25,6 @@ public interface CarpoolDAO {
 
 	List<String> getCarpoolLoctionListBySearch(HashMap<String, Object> param);
 
+	List<CarpoolVO> getAllSearchCarpoolList(String carpooltype);
+
 }

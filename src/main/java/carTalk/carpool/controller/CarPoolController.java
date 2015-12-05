@@ -49,17 +49,32 @@ public class CarPoolController {
 	 * 2. 카풀 찾기
 	 */
 	@RequestMapping(value="carpool_allSearch.do")
-	public String carpoolAllSearch(HttpServletRequest request,Model model){ 
+	public String carpoolAllSearch(HttpServletRequest request,Model model,String carpooltype){ 
 		HttpSession session = request.getSession(false);
 		if((MemberVO)session.getAttribute("loginInfo")==null&&(MemberVO)session.getAttribute("admin")==null){
 			return "carpool_session_fail";
 		}
-		//List<CarpoolVO> searchList= carpoolservice.getAllSearchCarpoolList(csvo);
-		//model.addAttribute("searchList",searchList);
+		System.out.println(carpooltype+"찾기");
+		
+		if(carpooltype==null||carpooltype==""){
+			carpooltype="등교";
+		}
+		List<CarpoolVO> searchList= carpoolservice.getAllSearchCarpoolList(carpooltype);
+		model.addAttribute("searchList",searchList);
 		model.addAttribute("searchCarpoolType","전체");
+		model.addAttribute("selectedType", carpooltype);
+		
+		if(carpooltype.equals("등교")){
+			System.out.println(carpooltype+"과 unselected는 하교");
+			model.addAttribute("unselectedType", "하교");
+		}
+		else{
+			System.out.println(carpooltype+"과 unselected는 등교");
+			model.addAttribute("unselectedType", "등교");
+		}
 		return "carpool_search_result";
 	}
-	
+
 	@RequestMapping(value="carpool_search.do")
 	public String carpoolSearch(CarpoolSearchVO csvo,HttpServletRequest request,Model model){ 
 		HttpSession session = request.getSession(false);

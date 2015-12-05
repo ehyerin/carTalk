@@ -15,7 +15,9 @@
  	 });
  	
  	$("#searchCarpoolType").change(function(){
- 		//ajax나 컨트롤러 가서 등하교 대로 가져오기
+ 		//ajax나 컨트롤러 가서 등하교 대로 가져오기 //실패
+ 		location.href="carpool_allSearch.do?carpooltype="+$("#searchCarpoolType option:selected").val();
+ 		
  	 });
  	
   });
@@ -32,9 +34,10 @@
 			<div class="col-md-10">
 			<c:if test="${requestScope.searchCarpoolType=='전체'}">
 			<div class="col-sm-2">
-			<select id="carpoolType" id="searchCarpoolType" class="form-control ">
-								<option value="등교">등교</option>
-								<option value="하교">하교</option>
+			<select id="searchCarpoolType" class="form-control ">
+								 <option value="${requestScope.selectedType}">${requestScope.selectedType}</option>
+								<option value="${requestScope.unselectedType}">${requestScope.unselectedType}</option>
+			
 			</select>
 			</div>
 			</c:if>
@@ -65,7 +68,7 @@
 				</table>
 					<div class="form-group">
 						<div class="col-sm-offset-7 col-sm-7">
-							<button type="button" class="btn btn-default" id="carpoolAllSearchBtn">전체보기</button>
+<!-- 							<button type="button" class="btn btn-default" id="carpoolAllSearchBtn">전체보기</button> -->
 							<button type="button" class="btn btn-default" id="carpoolSearchBtn">카풀찾기</button>
 						</div>
 					</div>

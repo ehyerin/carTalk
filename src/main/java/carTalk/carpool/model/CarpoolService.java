@@ -12,5 +12,6 @@ public interface CarpoolService {
 	void deleteCarpool(int carpoolNo);
 	int getLastInsertCarpoolNo();
 	List<CarpoolVO> getSearchCarpoolList(CarpoolSearchVO csvo);
+	List<CarpoolVO> getAllSearchCarpoolList(String carpooltype);
 
 }

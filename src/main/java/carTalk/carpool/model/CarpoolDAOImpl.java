@@ -30,6 +30,12 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 	
 	/**2. 카풀 찾기**/
 	@Override
+	public List<CarpoolVO> getAllSearchCarpoolList(String carpooltype) {
+		System.out.println(carpooltype+ " 카풀검색");
+		return sqlSessionTemplate.selectList("carpool.searchAllCarpoolListbyCarpoolType",carpooltype);
+	}
+	
+	@Override
 	public List<CarpoolVO> getSearchCarpoolList(CarpoolSearchVO csvo) {
 		System.out.println(csvo+" 로부터 카풀리스트찾기");
 		return sqlSessionTemplate.selectList("carpool.searchCarpoolList",csvo);
@@ -67,7 +73,7 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 	public int getLastInsertCarpoolNo() {
 		return sqlSessionTemplate.selectOne("carpool.selectLastcarpoolNo");
 	}
-	
+
 	
 	
 	
