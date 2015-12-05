@@ -108,7 +108,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 				<li><a href="${initParam.root }talk_list.do">토크방</a></li> 
         		<li><a href="${initParam.root }carpool_search_form.do">카풀</a></li>        		
 				<li><a href="${initParam.root }trade_list.do">중고거래</a></li>
-				<li><a href="${initParam.root }search_searchForm.do">학교정보</a></li>
+				<li><a href="${initParam.root }info_info.do">학교정보</a></li>
 				<c:choose>
 					<c:when test="${sessionScope.admin!=null }">
 						<li><a href="admin_sharing_List.do">관리자</a></li>
