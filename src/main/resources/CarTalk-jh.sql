@@ -6,6 +6,8 @@ select * from carpool_location;
 select * from member;
 select LAST_INSERT_ID();
  select LAST(carpool_no) from carpool;
+ select carpool_no,carpool_member_id, carpool_price, carpool_startTime,carpool_endTime,carpool_Companion,carpool_Type
+	from carpool where carpool_Type='하교';
  
  
 SELECT carpool.carpool_no,carpool.carpool_startTime, carpool.carpool_endTime,
