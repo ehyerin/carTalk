@@ -2,7 +2,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
-@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max);
+
 
 	.modalDialog {
 		position: fixed;
