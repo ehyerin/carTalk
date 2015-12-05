@@ -125,28 +125,28 @@ $(function(){
 			<fieldset>
 			<legend align="center">학교 정보</legend>
 			</fieldset>
-			<a href = "${initParam.root }sharing_carModelGarage_list.do"><img src ="${initParam.root }img/Ajou_Univ_Ui.png"  width="300" height="200" ><br>
+			<a href = "${initParam.root }info_info.do"><img src ="${initParam.root }img/Ajou_Univ_Ui.png"  width="300" height="200" ><br>
 			<h5>도서관 / 스쿨버스 / 식당 정보 보러가기 </h5></a>
 			</div>
 			<!-- find car form -->
 		<div class="col-md-4">
-			<form class="form-horizontal" role="form" id="searchForm" action = "${initParam.root }search_searchForm.do">
+		<form class="form-horizontal" action="${initParam.root}carpool_search.do"  id="carpoolSearchForm">
 				<div class="form-group">
 				<legend align="center">카풀 검색</legend>
 			  <br><br>
-					<div class="col-sm-3 col-sm-offset-1">
-					<label for="uCarZoneName" class="control-label">도착지</label>
+					<div class="col-sm-3">
+				<label for="carpoolDestination" class="control-label">출발/목적지</label>
 				</div>
 				<div class="col-sm-5">
-					<input type="text" class="form-control" id="uCarZoneName1" name="uCarZoneName" placeholder="지역">
+					<input type="text" class="form-control" id="carpoolDestination" name="searchCarpoolLoction" placeholder="지역">
 				</div>
 			</div>
 			<div class="form-group">
 				<div class="col-sm-3 col-sm-offset-1" >
-					<label for="rentalDate" class="control-label">출발일</label>
+						<label for="carpoolTime" class="control-label">시간</label>
 				</div>
 				<div class="col-sm-5">
-					<input type="text" class="form-control" id="rentalDate" name="rentalDate" placeholder="YYYY/MM/DD HH:MM">
+					<input type="text" class="form-control" id="carpoolTime" name="searchCarpoolTime" placeholder="YYYY/MM/DD HH:MM">
 				</div>
 			</div>
 		 	<div class="form-group">
@@ -159,15 +159,27 @@ $(function(){
 			</div>
 			<div class="form-group">
 				<div class="col-sm-3 col-sm-offset-1">
-					<label for="carType" class="control-label">차종</label>
+							<label for="carpoolType" class="control-label">등하교</label>
 				</div>
 				<div class="col-sm-5">
-					<select id="carModel" name="carModel"class="form-control">
-						<option value="all">전체차종</option>
-						<c:forEach items="${carModelList }" var="carModel" >
-							<option value="${carModel }">${carModel }</option>
-						</c:forEach>
-					</select>
+					<select id="carpoolType" name="searchCarpoolType" class="form-control">
+								<option value="">전체</option>
+								<option value="등교">등교</option>
+								<option value="하교">하교</option>
+							</select>
+				</div>
+			</div>
+				<div class="form-group">
+				<div class="col-sm-3 col-sm-offset-1">
+													<label for="carpoolCompanion" class="control-label">인원</label>
+				</div>
+				<div class="col-sm-5">
+					<select id="carpoolCompanion" name="searchCarpoolCompanion" class="form-control">
+								<option value="">전체</option>
+								<option value="1">1</option>
+								<option value="2">2</option>
+								<option value="3">3</option>
+							</select>
 				</div>
 			</div>
 			<div class="form-group">

@@ -2,6 +2,8 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <style>
+@media (min-width: @screen-sm-min) and (max-width: @screen-sm-max);
+
 	.modalDialog {
 		position: fixed;
 		font-family: Arial, Helvetica, sans-serif;
@@ -104,10 +106,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', end
 		<div class="collapse navbar-collapse"
 			id="bs-example-navbar-collapse-1">
 			<ul class="nav navbar-nav well-lg" style="font-size: 20px">
-				<li><a href="${initParam.root }service_home_usehow.do">서비스안내</a></li>
-				<li><a href="${initParam.root }talk_list.do">토크방</a></li> 
+<%-- 				<li><a href="${initParam.root }service_home_usehow.do">서비스안내</a></li> --%>
+				
         		<li><a href="${initParam.root }carpool_search_form.do">카풀</a></li>        		
 				<li><a href="${initParam.root }trade_list.do">중고거래</a></li>
+				<li><a href="${initParam.root }talk_list.do">토크방</a></li> 
 				<li><a href="${initParam.root }info_info.do">학교정보</a></li>
 				<c:choose>
 					<c:when test="${sessionScope.admin!=null }">
