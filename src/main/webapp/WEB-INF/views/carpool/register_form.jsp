@@ -126,7 +126,7 @@ function initialize() {
 			else
 			destination += ", "+ $("#carpoolDestination").val();
 			destinationlist+="<input type='hidden' name='carpoolDestination' value="+ $("#carpoolDestination").val()+">";
-			$("#DestinationAddResult").html(destination+" <input type='button' class='btn btn-primary btn-sm' id='DestinationDeleteBtn' value='전체삭제'>");
+			$("#DestinationAddResult").html(destination+" <input type='button' class='btn btn-primary btn-xs' id='DestinationDeleteBtn' value='전체삭제'><br><br>");
 			$("#Destinationlist").html(destinationlist);
 			$("#carpoolDestination").val("");
 			
@@ -172,7 +172,7 @@ function initialize() {
 							<button type="button" class="btn btn-primary btn-sm" id="DestinationAddBtn">추가</button>
 						</div>
 					</div>
-					<div id="DestinationAddResult"></div>
+					<div align="center" id="DestinationAddResult"></div>
 					<div id="Destinationlist"></div>
 					<div class="form-group">
 						<div class="col-sm-3 col-sm-offset-2" >
@@ -230,7 +230,7 @@ function initialize() {
 				</form>
 			</div>
 			
-			<div class="col-md-4">
+			<div class="col-md-4" align="center">
 				<div id="map_canvas" style="width:500px;height:500px;"></div>
 			</div>
 		</div>

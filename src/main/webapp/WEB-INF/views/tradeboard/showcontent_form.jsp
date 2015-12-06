@@ -19,7 +19,7 @@
 		}
 		});
 		$("#tradeList").click(function(){
-			location.href ="${initParam.root }customercenter_trade_list.do";
+			location.href ="${initParam.root }trade_list.do";
 		});
 		
 		$("#commentBtn").click(function(){
@@ -38,16 +38,16 @@
 							$.each(data.commentList, function(index, comment){
 								commentTable+="<tr>";
 								commentTable+="<td>";
-								commentTable+="<div class='col-md-1'>"
+								commentTable+="<div class='col-xs-1'>"
 									+comment.tradeCommentMemberId+"</div>";
-								commentTable+="<div class='col-md-8' id='"
+								commentTable+="<div class='col-xs-8' id='"
 									+comment.tradeCommentNo+"CommentContent'>"
 									+comment.tradeCommentContent+"</div>";
-								commentTable+="<div class='col-md-2'>"
+								commentTable+="<div class='col-xs-2'>"
 									+comment.tradeCommentTimePosted+"</div>";
 								if((comment.tradeCommentMemberId=="${sessionScope.loginInfo.memberId}") 
 										|| ("${sessionScope.admin.memberId}"=="admin")){
-									commentTable+="<div class='col-md-1'>";
+									commentTable+="<div class='col-xs-1'>";
 									commentTable+="<button type='button' class='btn btn-xs' "
 										+"name='editCommentFormBtn' value='"+comment.tradeCommentNo+"'>수정</button>";
 									commentTable+="<button type='button' class='btn btn-xs' name='deleteCommentBtn' "
@@ -81,18 +81,18 @@
 					$.each(data, function(index, comment){
 						commentTable+="<tr>";
 						commentTable+="<td>";
-						commentTable+="<div class='col-md-1'>"+comment.tradeCommentMemberId+"</div>";
+						commentTable+="<div class='col-xs-1'>"+comment.tradeCommentMemberId+"</div>";
 						if(comment.tradeCommentNo==commentNo){
 							commentTable+="<form id='"+commentNo+"editForm'>";
-							commentTable+="<div class='col-md-10'><input class='form-control' type='text' id='"+commentNo+"CommentContent' name='tradeCommentContent' value='"+commentContent+"'></div>";
-							commentTable+="<div class='col-md-1'>";
+							commentTable+="<div class='col-xs-10'><input class='form-control' type='text' id='"+commentNo+"CommentContent' name='tradeCommentContent' value='"+commentContent+"'></div>";
+							commentTable+="<div class='col-xs-1'>";
 							commentTable+="<button type='button' class='btn btn-primary btn-xs' name='editCommentBtn' value='"+commentNo+"'>수정</button>";
 							commentTable+="<input type='hidden' name='tradeCommentNo' value='"+commentNo+"'>";
 							commentTable+="<input type='hidden' name='tradeNo' value='${vo.tradeNo}'>";
 							commentTable+="</div></form>";
 						} else{
-							commentTable+="<div class='col-md-8' id='"+comment.tradeCommentNo+"CommentContent'>"+comment.tradeCommentContent+"</div>";
-							commentTable+="<div class='col-md-2'>"+comment.tradeCommentTimePosted+"</div>";
+							commentTable+="<div class='col-xs-8' id='"+comment.tradeCommentNo+"CommentContent'>"+comment.tradeCommentContent+"</div>";
+							commentTable+="<div class='col-xs-2'>"+comment.tradeCommentTimePosted+"</div>";
 							if((comment.tradeCommentMemberId=="${sessionScope.loginInfo.memberId}") || ("${sessionScope.admin.memberId}"=="admin")){
 								commentTable+="<div class='col-md-1'>";
 								commentTable+="<button type='button' class='btn btn-xs' name='editCommentFormBtn' value='"+comment.tradeCommentNo+"'>수정</button>";
@@ -128,11 +128,11 @@
 							$.each(data.commentList, function(index, comment){
 								commentTable+="<tr>";
 								commentTable+="<td>";
-								commentTable+="<div class='col-md-1'>"+comment.tradeCommentMemberId+"</div>";
-								commentTable+="<div class='col-md-8' id='"+comment.tradeCommentNo+"CommentContent'>"+comment.tradeCommentContent+"</div>";
-								commentTable+="<div class='col-md-2'>"+comment.tradeCommentTimePosted+"</div>";
+								commentTable+="<div class='col-xs-1'>"+comment.tradeCommentMemberId+"</div>";
+								commentTable+="<div class='col-xs-8' id='"+comment.tradeCommentNo+"CommentContent'>"+comment.tradeCommentContent+"</div>";
+								commentTable+="<div class='col-xs-2'>"+comment.tradeCommentTimePosted+"</div>";
 								if(comment.tradeCommentMemberId=="${sessionScope.loginInfo.memberId}" || ("${sessionScope.admin.memberId}"=="admin")){
-									commentTable+="<div class='col-md-1'>";
+									commentTable+="<div class='col-xs-1'>";
 									commentTable+="<button type='button' class='btn btn-xs' name='editCommentFormBtn' value='"+comment.tradeCommentNo+"'>수정</button>";
 									commentTable+="<button type='button' class='btn btn-xs' name='deleteCommentBtn' value='"+comment.tradeCommentNo+"'>삭제</button>";
 									commentTable+="</div>";
@@ -165,11 +165,11 @@
 							$.each(data.commentList, function(index, comment){
 								commentTable+="<tr>";
 								commentTable+="<td>";
-								commentTable+="<div class='col-md-1'>"+comment.tradeCommentMemberId+"</div>";
-								commentTable+="<div class='col-md-8' id='"+comment.tradeCommentNo+"CommentContent'>"+comment.tradeCommentContent+"</div>";
-								commentTable+="<div class='col-md-2'>"+comment.tradeCommentTimePosted+"</div>";
+								commentTable+="<div class='col-xs-1'>"+comment.tradeCommentMemberId+"</div>";
+								commentTable+="<div class='col-xs-8' id='"+comment.tradeCommentNo+"CommentContent'>"+comment.tradeCommentContent+"</div>";
+								commentTable+="<div class='col-xs-2'>"+comment.tradeCommentTimePosted+"</div>";
 								if(comment.tradeCommentMemberId=="${sessionScope.loginInfo.memberId}" || ("${sessionScope.admin.memberId}"=="admin")){
-									commentTable+="<div class='col-md-1'>";
+									commentTable+="<div class='col-xs-1'>";
 									commentTable+="<button type='button' class='btn btn-xs' name='editCommentFormBtn' value='"+comment.tradeCommentNo+"'>수정</button>";
 									commentTable+="<button type='button' class='btn btn-xs' name='deleteCommentBtn' value='"+comment.tradeCommentNo+"'>삭제</button>";
 									commentTable+="</div>";
@@ -257,10 +257,10 @@
 		</c:choose>
 	</fieldset>
 </form>
-<div class="col-md-12">
+
    <form id="commentForm">
-      <div class="col-md-1">댓글</div>
-      <div class="col-md-9">
+      <div class="col-xs-1">댓글</div>
+      <div class="col-xs-9">
          <input type="hidden" id="tradeNo" name="tradeNo" value="${requestScope.vo.tradeNo }">
          <c:choose>
          	<c:when test="${sessionScope.admin!=null }">
@@ -272,19 +272,20 @@
          </c:choose>         
          <input class="form-control" type="text" name="tradeCommentContent" id="tradeCommentContent">
       </div>
-      <div class="col-md-2">
+      <div class="col-xs-2">
          <button type="button" class="btn btn-primary" id="commentBtn">작성</button>
       </div>
    </form>
-</div>
+
 <br><br><br>
-<div class="col-md-12" id='ReviewCommentView'>
+<%-- <div class="col-md-12" id='ReviewCommentView'>
 	<c:if test="${fn:length(commentList)!=0 }">
 		<table class="table">
 			<tbody>
 				<c:forEach items="${commentList }" var="comment">
 					<tr>
 						<td>
+						<div class="form-inline">
 							<div class="col-md-1">${comment.tradeCommentMemberId }</div>
 							<div class="col-md-8" id="${comment.tradeCommentNo }CommentContent">
 								<p>${comment.tradeCommentContent }</p>
@@ -296,6 +297,35 @@
 									<button type="button" class="btn btn-xs" name="deleteCommentBtn" value="${comment.tradeCommentNo }">삭제</button>
 								</div>
 							</c:if>
+							</div>
+						</td>
+					</tr>
+				</c:forEach>
+			</tbody>
+		</table>  
+	</c:if>
+</div> --%>
+
+<div id='ReviewCommentView'>
+	<c:if test="${fn:length(commentList)!=0 }">
+		<table class="table">
+			<tbody>
+				<c:forEach items="${commentList }" var="comment">
+					<tr>
+						<td>
+						
+							<div class="col-xs-1">${comment.tradeCommentMemberId }</div>
+							<div class="col-xs-8" id="${comment.tradeCommentNo }CommentContent">
+								<p>${comment.tradeCommentContent }</p>
+							</div>
+							<div class="col-xs-2">${comment.tradeCommentTimePosted }</div>
+							<c:if test="${(comment.tradeCommentMemberId==sessionScope.loginInfo.memberId) || sessionScope.admin != null }">
+								<div class="col-xs-1">
+									<button type="button" class="btn btn-xs" name="editCommentFormBtn" value="${comment.tradeCommentNo }">수정</button><br>
+									<button type="button" class="btn btn-xs" name="deleteCommentBtn" value="${comment.tradeCommentNo }">삭제</button>
+								</div>
+							</c:if>
+							
 						</td>
 					</tr>
 				</c:forEach>
@@ -303,4 +333,3 @@
 		</table>  
 	</c:if>
 </div>
-

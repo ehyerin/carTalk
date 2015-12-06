@@ -1,6 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
+
+<style>
+#Mobilemenu{
+    display: none;
+    }
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+
+    #menu {
+    display:none;
+    }
+    #Mobilemenu{
+    display: block;
+    }
+}
+
+</style>
+
+
 <script>
 $(document).ready(function(){
 	$("#talkWriteForm").submit(function(){
@@ -44,10 +64,11 @@ $(document).ready(function(){
         		 </c:forEach>
               </tbody>
             </table>
+               </div>
             <br>
             <br>
-
-				
+            
+<div class="col-md-9" id="menu">	
 <c:if test="${sessionScope.loginInfo!=null||sessionScope.admin!=null}">	
 <form class="form-inline" action="${initParam.root}talk_write.do" id="talkWriteForm">
    <div class="form-group">
@@ -70,6 +91,33 @@ $(document).ready(function(){
   <button type="submit" class="btn btn-default">Send</button>
 </form>
 	</c:if>    
+</div>
+
+<div id="Mobilemenu">	
+<c:if test="${sessionScope.loginInfo!=null||sessionScope.admin!=null}">	
+<form class="form-inline" action="${initParam.root}talk_write.do" id="talkWriteForm">
+   <div class="form-group">
+    <label for="exampleInputName2">Name</label>   
+ <c:choose>
+  <c:when test="${sessionScope.loginInfo!=null}">	
+    <input type="button" class="form-control" value="${sessionScope.loginInfo.memberName}">
+ 	<input type="hidden" name="talkMemberId" value="${sessionScope.loginInfo.memberId}"> 
+  </c:when>
+  <c:otherwise>
+  	<input type="button" class="form-control" value="${sessionScope.admin.memberName}">
+  	<input type="hidden" name="talkMemberId" value="${sessionScope.admin.memberId}">
+  </c:otherwise>
+  </c:choose>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail2">Contents</label>
+    <textarea class="form-control" rows="2" cols="60" id="talkContents" name="talkContents" placeholder="내용을 입력하세요"></textarea>
+  </div>
+  <button type="submit" class="btn btn-default">Send</button>
+</form>
+	</c:if>    
+</div>
+
 
 			<br></br> 
 			<br><br>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -109,7 +157,7 @@ $(document).ready(function(){
               </li>
             </ul>
           </div>
-          </div>
+       
         </div>
       </div>
     </div>

@@ -178,11 +178,11 @@ function initialize() {
 				
 				</form>
 			</div>
-			
-			<div class="col-md-4">
+			<div class="col-md-4" align="center">
 				<div id="map_canvas" style="width:500px;height:500px;"></div>
 			</div>
 		</div>
+		
 		</div>
 </div>	
 			
