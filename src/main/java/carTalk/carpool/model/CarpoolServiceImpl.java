@@ -70,8 +70,9 @@ public class CarpoolServiceImpl implements CarpoolService {
 	/**4. 카풀삭제**/
 	@Override
 	public void deleteCarpool(int carpoolNo) {
-		carpoolDAO.deleteCarpool(carpoolNo);//카풀 테이블
 		carpoolDAO.deleteCarpoolLoction(carpoolNo);//카풀 지역테이블
+		carpoolDAO.deleteCarpool(carpoolNo);//카풀 테이블
+		
 	}
 	
 	

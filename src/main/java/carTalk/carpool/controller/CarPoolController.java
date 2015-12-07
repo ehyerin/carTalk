@@ -117,9 +117,9 @@ public class CarPoolController {
 	 */
 		@RequestMapping(value="carpool_delete.do")	
 	public String carpoolDelete(int carpoolNo){ 
-		System.out.println(carpoolNo+"번 삭제");
+		System.out.println(carpoolNo+"번 삭제 컨트롤러");
 		carpoolservice.deleteCarpool(carpoolNo);
-		return "redirect:carpool_mycarpool_list.do";
+		return "redirect:carpool_mycarpool.do";
 		}
 	
 }

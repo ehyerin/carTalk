@@ -62,10 +62,12 @@ public class CarpoolDAOImpl implements CarpoolDAO {
 	/**4. 카풀삭제하기**/
 	@Override
 	public void deleteCarpool(int carpoolNo) {
+		System.out.println(carpoolNo+"등록카풀 삭제");
 		sqlSessionTemplate.delete("carpool.deletecarpool",carpoolNo);
 	}
 	@Override
 	public void deleteCarpoolLoction(int carpoolNo) {
+		System.out.println(carpoolNo+"지역리스트 삭제");
 		sqlSessionTemplate.delete("carpool.deletecarpoolloction",carpoolNo);
 	}
 
