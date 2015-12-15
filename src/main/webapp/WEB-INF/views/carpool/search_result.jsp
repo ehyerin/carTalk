@@ -50,6 +50,7 @@
 							<th>마감시간</th>
 							<th>인원</th>
 							<th>가격</th>
+							<th>연락처</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -61,7 +62,8 @@
 								<td>${vo.carpoolstartTime }</td>
 								<td>${vo.carpoolendTime }</td>
 								<td>${vo.carpoolCompanion }</td>
-								<td>${vo.carpoolPrice }</td>										
+								<td>${vo.carpoolPrice }</td>	
+								<td>${vo.carpoolphone }</td>									
 							</tr>
 						</c:forEach>
 					</tbody>

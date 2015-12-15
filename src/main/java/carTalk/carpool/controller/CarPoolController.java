@@ -37,8 +37,9 @@ public class CarPoolController {
 		}	
 		cvo.setCarpoolMemberId(mvo.getMemberId());
 		//카풀 등록
-		carpoolservice.registerCarPool(cvo);
 		System.out.println("cvo: "+cvo);
+		carpoolservice.registerCarPool(cvo);
+		
 		//카풀지역db에 지역사이즈만큼 정보를 넣어준다.
 		for(int i=0; i<cvo.getCarpoolDestination().size(); i++){
 		carpoolservice.registerCarPoolLocation(cvo.getCarpoolNo(),cvo.getCarpoolDestination().get(i));

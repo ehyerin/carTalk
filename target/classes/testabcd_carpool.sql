@@ -30,6 +30,7 @@ CREATE TABLE `carpool` (
   `carpool_endTime` datetime NOT NULL,
   `carpool_Companion` int(11) NOT NULL,
   `carpool_Type` varchar(45) NOT NULL,
+  `carpool_phone` varchar(45) NOT NULL,
   PRIMARY KEY (`carpool_no`),
   KEY `carpool_member_id_idx` (`carpool_member_id`),
   CONSTRAINT `carpool_member_id` FOREIGN KEY (`carpool_member_id`) REFERENCES `member` (`member_id`) ON DELETE NO ACTION ON UPDATE NO ACTION

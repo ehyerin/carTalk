@@ -13,15 +13,17 @@ public class CarpoolVO {
 	private int carpoolCompanion;	//카풀 인원
 	private String carpoolType;     //카풀 등교인지 하교인지
 	private List<String> carpoolDestination; //카풀 목적지 리스트
+	private String carpoolphone; //카풀 연락처
 	
 	public CarpoolVO() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
 	public CarpoolVO(String carpoolMemberId, int carpoolNo, int carpoolPrice,
 			String carpoolstartTime, String carpoolendTime,
 			int carpoolCompanion, String carpoolType,
-			ArrayList<String> carpoolDestination) {
+			List<String> carpoolDestination, String carpoolphone) {
 		super();
 		this.carpoolMemberId = carpoolMemberId;
 		this.carpoolNo = carpoolNo;
@@ -31,7 +33,9 @@ public class CarpoolVO {
 		this.carpoolCompanion = carpoolCompanion;
 		this.carpoolType = carpoolType;
 		this.carpoolDestination = carpoolDestination;
+		this.carpoolphone = carpoolphone;
 	}
+
 	public String getCarpoolMemberId() {
 		return carpoolMemberId;
 	}
@@ -80,6 +84,15 @@ public class CarpoolVO {
 	public void setCarpoolDestination(List<String> carpoolDestination) {
 		this.carpoolDestination = carpoolDestination;
 	}
+	
+	public String getCarpoolphone() {
+		return carpoolphone;
+	}
+
+	public void setCarpoolphone(String carpoolphone) {
+		this.carpoolphone = carpoolphone;
+	}
+
 	@Override
 	public String toString() {
 		return "CarpoolVO [carpoolMemberId=" + carpoolMemberId + ", carpoolNo="
@@ -87,7 +100,10 @@ public class CarpoolVO {
 				+ ", carpoolstartTime=" + carpoolstartTime
 				+ ", carpoolendTime=" + carpoolendTime + ", carpoolCompanion="
 				+ carpoolCompanion + ", carpoolType=" + carpoolType
-				+ ", carpoolDestination=" + carpoolDestination + "]";
+				+ ", carpoolDestination=" + carpoolDestination
+				+ ", carpoolphone=" + carpoolphone + "]";
 	}
+
+
 	
 }

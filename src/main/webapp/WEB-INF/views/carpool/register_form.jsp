@@ -84,6 +84,10 @@ function initialize() {
 				alert("가격을 숫자로 입력하세요!");
 				return false;
 				}
+		 else if($("#carpoolPhone").val()==""){
+				alert("연락처를 입력하세요!");
+				return false;
+				}
 		 
 	 });
 	 
@@ -220,6 +224,14 @@ function initialize() {
 						</div>
 						<div class="col-sm-5">
 							<input type="text" class="form-control" id="carpoolPrice" name="carpoolPrice" placeholder="가격">
+						</div>
+					</div>
+					<div class="form-group">
+						<div class="col-sm-3 col-sm-offset-2">
+							<label for="carpoolPhone" class="control-label">연락처</label>
+						</div>
+						<div class="col-sm-5">
+							<input type="number" class="form-control" id="carpoolphone" name="carpoolphone" placeholder="-없이 입력하세요">
 						</div>
 					</div>
 					 <div class="form-group">
